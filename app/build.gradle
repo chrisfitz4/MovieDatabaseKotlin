@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.example.moviedatabasekotlin"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    //Retrofit 
+    implementation "com.squareup.retrofit2:retrofit:$RetrofitDep"
+    implementation "com.squareup.retrofit2:converter-gson:$RetrofitDep"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$RetrofitDep"
+
+    //Glide —>image caching and remote access
+    implementation "com.github.bumptech.glide:glide:$GlideDep"
+    annotationProcessor "com.github.bumptech.glide:compiler:$GlideDep"
+
+
+    //Butter Knife —> automatic casting, gets around findViewById(…)
+    implementation "com.jakewharton:butterknife:$ButterKnifeDep"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$ButterKnifeDep"
+
+
+    //Android XrecyclerView
+    implementation "com.google.android.material:material:$RecyclerViewDep"
+
+    //ViewModelProvider
+    implementation "androidx.lifecycle:lifecycle-extensions:$ViewModelProviderDep"
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

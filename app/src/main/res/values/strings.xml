@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Movie Database</string>
+    <string name="search">Search</string>
+    <string name="search_prompt">What are you looking for?</string>
+</resources>
